@@ -1,14 +1,11 @@
 package ru.itsjava.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import ru.itsjava.domain.Genre;
 
-public interface GenreRepository {
+import java.util.Optional;
 
-    Genre getById(long id);
+public interface GenreRepository extends JpaRepository<Genre, Long> {
 
-    void insert (Genre genre);
-
-    void update (Genre genre);
-
-    void deleteById(long id);
+    Optional <Genre> getByName(String name);
 }
